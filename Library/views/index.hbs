@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список книг</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Список книг</h1>
+    <p><a href="/create">Добавить книгу</a></p>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Authors</th><th>Genre</th><th>Publish Date</th><th>DSC</th><th>Rating</th><th>IS Reading</th><th></th></tr>
+        {{#each books}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.authors}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.publish_date}}</td>
+                <td>{{this.dsc}}</td>
+                <td>{{this.rating}}</td>
+                <td>{{this.is_reading}}</td>
+                <td>
+                    <a href="/edit/{{this.id}}">Edit</a>|
+                    <form action="delete/{{this.id}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</body>
+<html>
